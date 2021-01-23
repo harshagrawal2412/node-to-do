@@ -3,11 +3,10 @@ const mysql = require("mysql");
 const app = express();
 var bodyParser = require('body-parser')
 var db= require('./db');
+const PORT = process.env.PORT || 5000;
 
-// create application/json parser
 var jsonParser = bodyParser.json()
  
-// create application/x-www-form-urlencoded parser
 var urlencodedParser = bodyParser.urlencoded({ extended: true })
 app.use(bodyParser.json({ type: 'application/*+json' }));
 
@@ -50,4 +49,4 @@ app.delete("/:Task",async (req, res, next) => {
   }
 })
 
-app.listen(1337);
+app.listen(PORT);
