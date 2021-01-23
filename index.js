@@ -40,7 +40,7 @@ app.delete("/:Task",async (req, res, next) => {
     let task = req.params.Task;
     if (task) {
       let sql = "DELETE FROM list WHERE Task=?";
-      let result = await db.query(sql, [task]);
+      let result = db.query(sql, [task]);
       res.send("Task Deleted");
     } else {
       res.send("Error");
